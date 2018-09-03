@@ -8,6 +8,8 @@ import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.react.uimanager.ViewManager;
+import com.rnawesomeproject.react.module.RnHandleModule;
+import com.rnawesomeproject.react.view.RnLabelTextView;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -16,17 +18,11 @@ import java.util.Map;
 
 import javax.annotation.Nullable;
 
-import com.rnawesomeproject.react.module.RnHandleModule;
-import com.rnawesomeproject.react.view.RnLabelTextView;
-
 /**
- *
- * 1 ReactNativeHost包含ReactInstanceManager，是对ReactInstanceManager的封装,
- * 一个Bundle 对应一个 ReactNativeHost 里边 包含一个ReactInstanceManager
- * <p>
- * //------- BundleFile ------------- MainComponentName -- launcher option
- * //----------模块 -----------------------页面------------参数和ViewGroup
+ * ------- BundleFile(对应一个ReactNativeHost、一个ReactInstanceManager) ------------- MainComponentName -- launcher option
+ * ----------模块 -------------------------------------------------------------------------页面------------参数和ViewGroup
  * 一个BundleFile可以包含多个ComponentName，但建议只包含一个ComponentName，这样可以做BundleFile的拆分
+ * 一个Bundle 对应一个 ReactNativeHost, 里边 包含一个ReactInstanceManager
  */
 public class RnHostManager {
 
@@ -49,6 +45,15 @@ public class RnHostManager {
         return _instance;
     }
 
+    public static String getFileNameNoEx(String filename) {
+        if ((filename != null) && (filename.length() > 0)) {
+            int dot = filename.lastIndexOf('.');
+            if ((dot > -1) && (dot < (filename.length()))) {
+                return filename.substring(0, dot);
+            }
+        }
+        return filename;
+    }
 
     public ReactNativeHost getReactNativeHost(final String bundleName) {
         if (reactNativeHostMap.get(bundleName) == null) {
@@ -73,8 +78,8 @@ public class RnHostManager {
                  * @return
                  */
                 @Override
-                protected String getJSMainModuleName() {
-                    return bundleName;
+                protected String getJSMainModuleName() {//指定debug时的 url的path
+                    return getFileNameNoEx(bundleName);
                 }
 
                 @Override
