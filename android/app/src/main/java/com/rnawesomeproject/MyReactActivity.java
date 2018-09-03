@@ -13,7 +13,7 @@ import android.widget.Toast;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactRootView;
 import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler;
-import com.rnawesomeproject.react.utils.RnHostManager;
+import com.rnawesomeproject.react.utils.RnInstanceManager;
 
 /**
  * Created by liumeng02 on 2018/3/9.
@@ -31,9 +31,8 @@ public class MyReactActivity extends AppCompatActivity implements DefaultHardwar
         super.onCreate(savedInstanceState);
 
         mReactRootView = new ReactRootView(this);
-        mReactInstanceManager = RnHostManager.getInstance(getApplication())
-                .getReactNativeHost("index.js")
-                .getReactInstanceManager();
+        mReactInstanceManager = RnInstanceManager.getInstance(getApplication())
+                .getReactInstanceManager("index.js");
 //        mReactInstanceManager = ReactInstanceManager.builder()
 //                .setApplication(getApplication())
 //                .setBundleAssetName("index.android.bundle")
@@ -116,7 +115,7 @@ public class MyReactActivity extends AppCompatActivity implements DefaultHardwar
         if (requestCode == OVERLAY_PERMISSION_REQ_CODE) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 if (!Settings.canDrawOverlays(this)) {
-                    Toast.makeText(this, "SYSTEM_ALERT_WINDOW permission not granted", 1).show();
+                    Toast.makeText(this, "SYSTEM_ALERT_WINDOW permission not granted", Toast.LENGTH_SHORT).show();
                 }
             }
         }

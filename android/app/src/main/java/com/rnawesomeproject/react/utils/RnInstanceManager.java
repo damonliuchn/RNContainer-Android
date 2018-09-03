@@ -2,6 +2,7 @@ package com.rnawesomeproject.react.utils;
 
 import android.app.Application;
 
+import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;
@@ -24,21 +25,21 @@ import javax.annotation.Nullable;
  * 一个BundleFile可以包含多个ComponentName，但建议只包含一个ComponentName，这样可以做BundleFile的拆分
  * 一个Bundle 对应一个 ReactNativeHost, 里边 包含一个ReactInstanceManager
  */
-public class RnHostManager {
+public class RnInstanceManager {
 
-    private volatile static RnHostManager _instance;
+    private volatile static RnInstanceManager _instance;
     private Map<String, ReactNativeHost> reactNativeHostMap = new HashMap<>();
     private Application application;
 
-    private RnHostManager(Application application) {
+    private RnInstanceManager(Application application) {
         this.application = application;
     }
 
-    public static RnHostManager getInstance(final Application application) {
+    public static RnInstanceManager getInstance(final Application application) {
         if (_instance == null) {
-            synchronized (RnHostManager.class) {
+            synchronized (RnInstanceManager.class) {
                 if (_instance == null) {
-                    _instance = new RnHostManager(application);
+                    _instance = new RnInstanceManager(application);
                 }
             }
         }
@@ -55,7 +56,7 @@ public class RnHostManager {
         return filename;
     }
 
-    public ReactNativeHost getReactNativeHost(final String bundleName) {
+    public ReactInstanceManager getReactInstanceManager(final String bundleName) {
         if (reactNativeHostMap.get(bundleName) == null) {
 
             final ReactNativeHost reactNativeHost = new ReactNativeHost(application) {
@@ -94,7 +95,7 @@ public class RnHostManager {
             };
             reactNativeHostMap.put(bundleName, reactNativeHost);
         }
-        return reactNativeHostMap.get(bundleName);
+        return reactNativeHostMap.get(bundleName).getReactInstanceManager();
     }
 
     void clearBundleMemoryCache() {
