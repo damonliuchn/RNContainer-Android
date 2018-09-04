@@ -1,7 +1,3 @@
-/** @format */
-
-import {AppRegistry} from 'react-native';
-import App from './src/App';
-import {name as appName} from './src/app.json';
-
-AppRegistry.registerComponent(appName, () => App);
+import { AppRegistry} from 'react-native';
+import MainPageProvider from './src/page/mainPageProvider';
+AppRegistry.registerComponent('main', () => MainPageProvider);

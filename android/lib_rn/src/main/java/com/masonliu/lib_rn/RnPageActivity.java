@@ -1,4 +1,4 @@
-package com.rnawesomeproject;
+package com.masonliu.lib_rn;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -13,14 +13,14 @@ import android.widget.Toast;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactRootView;
 import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler;
-import com.rnawesomeproject.react.utils.RnInstanceManager;
+import com.masonliu.lib_rn.utils.RnInstanceManager;
 
 /**
  * Created by liumeng02 on 2018/3/9.
  * eg: http://index.android.bundle/MainComponent/coupon?launchOption={"key":"value"}
  */
 
-public class MyReactActivity extends AppCompatActivity implements DefaultHardwareBackBtnHandler {
+public class RnPageActivity extends AppCompatActivity implements DefaultHardwareBackBtnHandler {
     private final int OVERLAY_PERMISSION_REQ_CODE = 1;  // 任写一个值
     private ReactRootView mReactRootView;
     private ReactInstanceManager mReactInstanceManager;

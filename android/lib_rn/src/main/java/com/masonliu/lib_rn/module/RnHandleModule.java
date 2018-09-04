@@ -1,4 +1,4 @@
-package com.rnawesomeproject.react.module;
+package com.masonliu.lib_rn.module;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;

@@ -1,4 +1,4 @@
-package com.rnawesomeproject.react.view;
+package com.masonliu.lib_rn.view;
 
 import android.content.Context;
 import android.util.AttributeSet;

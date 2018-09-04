@@ -1,4 +1,4 @@
-package com.rnawesomeproject.react.utils;
+package com.masonliu.lib_rn.utils;
 
 import android.app.Application;
 
@@ -9,8 +9,6 @@ import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.react.uimanager.ViewManager;
-import com.rnawesomeproject.react.module.RnHandleModule;
-import com.rnawesomeproject.react.view.RnLabelTextView;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -63,7 +61,7 @@ public class RnInstanceManager {
 
                 @Override
                 public boolean getUseDeveloperSupport() {
-                    return DebugableUtil.isApkDebugable(application);
+                    return CommonUtil.isApkDebugable(application);
                 }
 
                 @Override
@@ -107,14 +105,14 @@ public class RnInstanceManager {
         @Override
         public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
             return Arrays.<NativeModule>asList(
-                    new RnHandleModule(reactContext)
+                    new com.masonliu.lib_rn.module.RnHandleModule(reactContext)
             );
         }
 
         @Override
         public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
             return Arrays.<ViewManager>asList(
-                    new RnLabelTextView.RnLabelTextViewManager()
+                    new com.masonliu.lib_rn.view.RnLabelTextView.RnLabelTextViewManager()
             );
         }
     }
