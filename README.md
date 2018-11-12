@@ -1,11 +1,12 @@
 # RNContainer-Android
 
 TODO:
-1、可以debug
-2、容器可以下载远程bundle
-3、redux接入
+1、download 管理，即容器可以下载远程bundle
 
-
+## RUN
+```bash
+npm run serveAndDebug
+```
 ## 升级：
 https://stackoverflow.com/questions/48756550/unable-to-resolve-module-accessibilityinfo-when-trying-to-create-release-bund
 处理升级时的包不匹配的方法：重新init一次  然后查看各版本号
@@ -41,3 +42,9 @@ Weex npm 命令功能：
 
 ## 二、WeexContainer-Android，一个Android平台上Weex容器，实现MPA,Bundle缓存、验签等通用功能。
 https://github.com/MasonLiuChn/WeexContainer-Android
+
+## 实时加载（Live Reload）和热加载（Hot Reload）的区别
+实时加载应用更新时需要刷新当前页面，可以看到明显的全局刷新效果，状态重置，而热加载基本上看不出刷新的效果，类似于局部刷新，状态不变
+热加载的基础是模块热替换（HMR，Hot Module Replacement[3]），HMR 最开始是由 Webpack 引入的，我们在 React Native Packager 中也实现了这个功能。HMR 使得 Packager 可以监控文件的改动并发送 HMR 更新消息（HMR update）给包含在 APP 中的一层很薄的 HMR 运行时（HMR runtime）。
+
+https://www.jianshu.com/p/1fa6e9c0799f#fn2

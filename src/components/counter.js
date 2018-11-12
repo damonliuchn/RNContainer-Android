@@ -15,7 +15,7 @@ export default class Counter extends Component{
         return(
             <View>
                 <Text style={{fontSize: 25, alignSelf: 'center'}}>{text}</Text>
-                <Button title="add" onPress={onPress.increment}/>
+                <Button title="add122ddddd333sdfsd订单" onPress={onPress.increment}/>
                 <Text> </Text>
                 <Button title="subtract" onPress={onPress.decrement}/>
             </View>

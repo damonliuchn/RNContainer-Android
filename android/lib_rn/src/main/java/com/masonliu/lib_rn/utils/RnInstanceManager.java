@@ -10,6 +10,7 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.react.uimanager.ViewManager;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -21,7 +22,6 @@ import javax.annotation.Nullable;
  * ------- BundleFile(对应一个ReactNativeHost、一个ReactInstanceManager) ------------- MainComponentName -- launcher option
  * ----------模块 -------------------------------------------------------------------------页面------------参数和ViewGroup
  * 一个BundleFile可以包含多个ComponentName，但建议只包含一个ComponentName，这样可以做BundleFile的拆分
- * 一个Bundle 对应一个 ReactNativeHost, 里边 包含一个ReactInstanceManager
  */
 public class RnInstanceManager {
 
@@ -45,9 +45,9 @@ public class RnInstanceManager {
     }
 
     public static String getFileNameNoEx(String filename) {
-        if ((filename != null) && (filename.length() > 0)) {
+        if (filename != null && filename.length() > 0) {
             int dot = filename.lastIndexOf('.');
-            if ((dot > -1) && (dot < (filename.length()))) {
+            if (dot > -1 && dot < filename.length()) {
                 return filename.substring(0, dot);
             }
         }
@@ -66,10 +66,14 @@ public class RnInstanceManager {
 
                 @Override
                 protected List<ReactPackage> getPackages() {
-                    return Arrays.asList(
+                    List<ReactPackage> list = new ArrayList<>(Arrays.asList(
                             new MainReactPackage(),
-                            new CustomReactPackage()
-                    );
+                            new RnContainerReactPackage()
+                    ));
+                    if (RnUtil.reactPackage != null) {
+                        list.add(RnUtil.reactPackage);
+                    }
+                    return list;
                 }
 
                 /**
@@ -100,7 +104,7 @@ public class RnInstanceManager {
         reactNativeHostMap.clear();
     }
 
-    class CustomReactPackage implements ReactPackage {
+    class RnContainerReactPackage implements ReactPackage {
 
         @Override
         public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
