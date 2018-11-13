@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {Text, View, Button} from 'react-native';
-import * as actions from '../redux/actions'
+import * as actions from '../redux/actions/main'
 
 class Counter extends Component{
     static contextTypes = {
