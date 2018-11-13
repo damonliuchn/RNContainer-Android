@@ -10,10 +10,10 @@ import Counter from '../components/counter';
 class MainPage extends Component{
 
     render(){
-        const {number, actions} = this.props;
+        const {state, dispatch,bindedActions} = this.props;
         return(
             <View>
-                <Counter text={number} onPress={actions}/>
+                <Counter/>
             </View>
         );
     }
@@ -21,13 +21,14 @@ class MainPage extends Component{
 
 const mapStateToProps = (state) => {
     return {
-        number: state.counter.count
+        state: state
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        actions: bindActionCreators(Actions, dispatch)
+        dispatch:dispatch,
+        bindedActions: bindActionCreators(Actions, dispatch)
     };
 };
 

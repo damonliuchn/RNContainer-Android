@@ -1,11 +1,24 @@
 # RNContainer-Android
 
 TODO:
+action index.js  改为main.js
+counter.js 改为main.js
 1、download 管理，即容器可以下载远程bundle
+
+component->action->dispatch->store->reducer->state->component
+组件之间传递值方法 https://www.jianshu.com/p/f908fdc654b4
+this作用域问题
+https://blog.csdn.net/u013179982/article/details/78497384
+react Component自动将render()等固定函数的this指向Component,Vue也是同理
+react 对于自定义的函数则this还是执行函数对象本身，需要bind到Component上或者使用箭头函数自动bind
+bind(this)的含义是 将函数的this对象指向当前环境里的this
+<Provider store> 使组件层级中的 connect() 方法都能够获得 Redux store。正常情况下，你的根组件应该嵌套在 <Provider> 中才能使用 connect() 方法。
+传递store //http://react-china.org/t/react-redux-redux-store/11242
 
 ## RUN
 ```bash
 npm run serveAndDebug
+npm run build
 ```
 ## 升级：
 https://stackoverflow.com/questions/48756550/unable-to-resolve-module-accessibilityinfo-when-trying-to-create-release-bund

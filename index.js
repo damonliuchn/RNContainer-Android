@@ -1,3 +1,3 @@
 import { AppRegistry} from 'react-native';
-import MainPageProvider from './src/page/mainPageProvider';
+import MainPageProvider from './src/page/main-page-provider';
 AppRegistry.registerComponent('main', () => MainPageProvider);
