@@ -26,6 +26,12 @@ export function getNewsSuccess(success,data) {
 
 export function getNews() {
     return dispatch =>{
-        fetch
+        fetch('http://nero-zou.com/test')
+            .then(response => response.json())
+            .then(function(response) {
+                dispatch(getNewsSuccess(true,response))
+            }).catch(function(err) {
+                dispatch(getNewsSuccess(false,null))
+            });
     }
 }
