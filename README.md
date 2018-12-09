@@ -1,6 +1,6 @@
 # RNContainer-Android
 
-> 此工程是基于react-native Android sdk封装的运行bundle的容器，本人建议使用Weex来代替react-native，下面是weex和react-native开发时的差异点。
+> 此工程是基于react-native Android sdk封装的运行bundle的容器，使用redux和本人建议使用Weex来代替react-native，下面有weex和react-native开发时的差异点。
 
 # TODO
 1、download 管理，即容器可以下载远程bundle
