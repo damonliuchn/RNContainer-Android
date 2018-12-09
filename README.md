@@ -15,6 +15,29 @@ bind(this)的含义是 将函数的this对象指向当前环境里的this
 <Provider store> 使组件层级中的 connect() 方法都能够获得 Redux store。正常情况下，你的根组件应该嵌套在 <Provider> 中才能使用 connect() 方法。
 传递store //http://react-china.org/t/react-redux-redux-store/11242
 
+
+debug下 点击音量键 或者  摇晃手机 弹出debug dialog可以更改debug server host
+
+
+
+RnUtil.setDebugHost(this, "192.168.10.1:8081");
+        RnUtil.setBridgePackage(new ReactPackage() {
+            @Override
+            public List<NativeModule> createNativeModules(ReactApplicationContext reactApplicationContext) {
+                return new ArrayList<>();
+            }
+
+            @Override
+            public List<ViewManager> createViewManagers(ReactApplicationContext reactApplicationContext) {
+                return new ArrayList<>();
+            }
+        });
+
+RnPageActivity.startFrom(this, "index.js", null);
+
+
+
+
 ## RUN
 ```bash
 npm run serveAndDebug

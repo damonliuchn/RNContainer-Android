@@ -43,7 +43,7 @@ class Counter extends Component{
         const {text} = this.props;
         return(
             <View>
-                <Text style={{fontSize: 25, alignSelf: 'center'}}>{this.props.state.counter.count}</Text>
+                <Text style={{fontSize: 25, alignSelf: 'center'}}>{this.props.state.main.count}</Text>
                 <Button title="add122ddddd333sdfsd订单呃呃呃" onPress={this.handleClick}/>
                 <Text> </Text>
                 <Button title="subtract" onPress={this.handleClick}/>
@@ -51,8 +51,8 @@ class Counter extends Component{
         );
     }
     componentWillReceiveProps(nextProps){
-        if (this.props.state.counter.news !== nextProps.state.counter.news){
-           alert('变化'+ nextProps.state.counter.news.data.newslist.length)
+        if (this.props.state.main.news !== nextProps.state.main.news){
+           alert('变化'+ nextProps.state.main.news.data.newslist.length)
         }
     }
 }

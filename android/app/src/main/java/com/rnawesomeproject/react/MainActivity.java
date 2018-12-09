@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        RnUtil.setDebugHost(this, "172.20.14.34:8081");
+        //RnUtil.setDebugHost(this, "192.168.10.1:8081");
         RnUtil.setBridgePackage(new ReactPackage() {
             @Override
             public List<NativeModule> createNativeModules(ReactApplicationContext reactApplicationContext) {

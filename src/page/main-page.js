@@ -4,8 +4,8 @@ import React, {Component} from 'react';
 import {Text, View} from 'react-native';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as Actions from '../redux/actions/actionCreator';
-import Counter from '../components/counter';
+import * as Actions from '../redux/actions/main';
+import MovieList from '../components/movie-list';
 
 class MainPage extends Component{
 
@@ -13,7 +13,8 @@ class MainPage extends Component{
         const {state, dispatch,bindedActions} = this.props;
         return(
             <View>
-                <Counter/>
+                <Text style={{fontSize: 25, alignSelf: 'center'}}>科技新闻</Text>
+                <MovieList/>
             </View>
         );
     }

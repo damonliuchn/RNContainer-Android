@@ -26,7 +26,7 @@ export function getNewsSuccess(success,data) {
 
 export function getNews() {
     return dispatch =>{
-        fetch('http://nero-zou.com/test')
+        fetch('https://gitee.com/masonliu/MockData/raw/master/QQTechNews.json')
             .then(response => response.json())
             .then(function(response) {
                 dispatch(getNewsSuccess(true,response))

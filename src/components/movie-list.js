@@ -14,31 +14,29 @@ import {
 const styles = StyleSheet.create({
 	listView: {
 		paddingTop: 20,
-		backgroundColor: '#f5fcff'
+		backgroundColor: '#ffffff'
 	},
 	container: {
 		flex: 1,
 		flexDirection: 'row',
 		justifyContent: 'center',
 		alignItems: 'center',
-		padding: 16,
-		backgroundColor: '#f5fcff'
+		padding: 10,
+		backgroundColor: '#ffffff'
 	},
 	thumbnail: {
-		width: 60,
-		height: 100,
-		marginRight: 16
+		width: 120,
+		height: 81
 	},
 	rightContainer: {
-		flex: 1
+		flex: 1,
+		marginLeft:6
 	},
 	title: {
-		fontSize: 20,
-		marginBottom: 8,
-		textAlign: 'center'
+		fontSize: 16,
+		marginBottom: 8
 	},
 	year: {
-		textAlign: 'center'
 	}
 });
 
@@ -72,9 +70,9 @@ class MovieList extends Component {
 	}
 
     componentWillReceiveProps(nextProps){
-        if (this.props.state.counter.news !== nextProps.state.counter.news){
+        if (this.props.state.main.news !== nextProps.state.main.news){
                 this.setState({
-					dataSource: this.state.dataSource.cloneWithRows(nextProps.state.counter.news.data.newslist), // 把数据扔dataSource里
+					dataSource: this.state.dataSource.cloneWithRows(nextProps.state.main.news.data.newslist), // 把数据扔dataSource里
 					loaded: true // 加载完成置为true
 				});
         }
@@ -134,4 +132,4 @@ const mapDispatchToProps = (dispatch) => {
         dispatch:dispatch
     };
 };
-export default connect(mapStateToProps, mapDispatchToProps)(Counter);
+export default connect(mapStateToProps, mapDispatchToProps)(MovieList);
