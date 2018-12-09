@@ -7,7 +7,7 @@ const initialState = {
     news:null
 }
 
-export default function counter(state = initialState, action){
+export default function main(state = initialState, action){
     switch (action.type){
         case types.INCREMENT:
             return {

@@ -30,7 +30,7 @@ public class RnPageActivity extends AppCompatActivity implements DefaultHardware
     private ReactInstanceManager mReactInstanceManager;
     private String mUri;
 
-    public static void startFrom(Context activity, String uri, String backupsName) {
+    public static void startFrom(Context activity, String uri) {
         if (TextUtils.isEmpty(uri)) {
             return;
         }

@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void openIndexPage(View view) {
-        RnPageActivity.startFrom(this, "index.js", null);
+        RnPageActivity.startFrom(this, "index.js");
     }
 
 }

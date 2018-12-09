@@ -14,7 +14,7 @@ export function decrement() {
     };
 }
 
-export function getNewsSuccess(success,data) {
+function getNewsSuccess(success,data) {
     return {
         type: types.GETNEWS,
         result:{
