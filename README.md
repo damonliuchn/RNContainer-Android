@@ -24,6 +24,8 @@ RnUtil.setDebugHost(this, "192.168.10.1:8081");
 
 RnPageActivity.startFrom(this, "index.js");
 ```
+<img src="https://raw.githubusercontent.com/MasonLiuChn/RNContainer-Android/master/doc/1.jpg" width="20%" height="20%" />
+
 - 运行
 ```bash
 npm run serveDev
@@ -33,7 +35,7 @@ npm run build
 # 知识点记录
 
 - weex 和 react-native 开发时的差异点
-![](https://raw.githubusercontent.com/MasonLiuChn/RNContainer-Android/master/blog.png)
+![](https://raw.githubusercontent.com/MasonLiuChn/RNContainer-Android/master/doc/blog.png)
 
 - rn npm命令和 Weex npm命令区别
     - rn：  start
